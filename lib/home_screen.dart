@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_01/widgets/location_card.dart';
+import 'package:travel_app_01/widgets/nearby_places.dart';
 import 'package:travel_app_01/widgets/recommended_places.dart';
 import 'package:travel_app_01/widgets/tourist_places.dart';
 
@@ -49,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Column(
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               // Cards
               const LocationCard(),
@@ -69,6 +71,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const RecommendedPlaces(),
+              const SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Nearby Places",
+                      style: Theme.of(context).textTheme.headlineSmall),
+                  TextButton(onPressed: () {}, child: const Text("View All"))
+                ],
+              ),
+              const NearbyPlaces(),
               // Categories
 
               // Recommendations
